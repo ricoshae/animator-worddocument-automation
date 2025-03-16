@@ -1,0 +1,47 @@
+tell application "Finder" to set myFiles to every file of (choose folder)
+
+repeat with aFile in myFiles
+	
+	tell application "Microsoft Word"
+		
+		set file_name to aFile as string
+		
+		set fileext to name extension of aFile
+		
+		if the name extension of aFile is "docx" or the name extension of aFile is "doc" then
+			
+			activate
+			
+			open file file_name
+			
+			try
+				
+				unprotect active document password "1234"
+				
+			end try
+			
+			
+			set docRange to text object of active document
+			set headerRef to text object of (get header of section 1 of active document index header footer primary)
+			set footerRef to text object of (get footer of section 1 of active document index header footer primary)
+			
+			clear formatting of find object of docRange
+			
+			execute find (find object of docRange) find text "jack" replace with "david" replace replace all
+			
+			execute find (find object of headerRef) find text "Songwriters book" replace with "Songwriting introduction" replace replace all
+			
+			execute find (find object of footerRef) find text "2021" replace with "2025" replace replace all
+			
+			protect active document protection type allow only form fields password "1234"
+			
+			save active document
+			
+			close active document
+		end if
+		
+	end tell
+	
+	delay 1
+	
+end repeat

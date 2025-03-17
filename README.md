@@ -1,8 +1,10 @@
 **Overview**
+
 This code will automate the editing of word documents using AppleScript in Automator.
 The script will request a folder of word documents then automatically open, edit and close each document based on simple find and replace commands in the script.
 
 **To run the script**
+
 Open Automator on a Mac.
 Search for "Run AppleSCript" and add to automator
 Replace the example code with the script in animator-worddocument-automation.txt

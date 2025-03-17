@@ -6,7 +6,7 @@ The script will request a folder of word documents then automatically open, edit
 **To run the script**
 
 Open Automator on a Mac.
-Search for "Run AppleSCript" and add to automator
+Search for "Run AppleScript" and add to automator
 Replace the example code with the script in animator-worddocument-automation.txt
 Run the script
 - Choose a folder
